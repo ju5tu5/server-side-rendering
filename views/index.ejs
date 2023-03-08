@@ -1,0 +1,20 @@
+<%- include('./partials/head.ejs') %>
+
+<% semesters.forEach(semester => { %>
+ <article>
+  <h2><%= semester.title %></h2>
+  <ol>
+  <% semester.sprints.forEach(sprint => { %>
+    <% if (sprint.sprintNumber !== null) { %>
+     <li>
+      <a href="/sprint/?sprintSlug=<%= sprint.slug %>">
+        <%= sprint.title %>
+      </a>
+    </li>
+    <% } %>
+  <% }) %>
+  </ol>
+ </article>
+<% }) %>
+
+<%- include('./partials/foot.ejs') %>
